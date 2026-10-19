@@ -1,29 +1,149 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Un vale hecho con amor</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ded0f5">
+<title>Para Sabi & Nacho</title>
 <style>
-:root{--cream:#fffaf3;--pink:#d98598;--rose:#f8e5e7;--sage:#dce8d8;--ink:#493d3a;--muted:#82736d;--white:#fff}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,sans-serif;line-height:1.55} .wrap{width:min(920px,92%);margin:auto}.hero{padding:48px 0 28px;text-align:center;background:radial-gradient(circle at 10% 20%,#f8e5e7 0,transparent 25%),radial-gradient(circle at 90% 10%,#dce8d8 0,transparent 24%)}.eyebrow{letter-spacing:.16em;text-transform:uppercase;font-size:.75rem;color:var(--muted)}h1{font-family:Georgia,serif;font-size:clamp(2.3rem,7vw,4.4rem);line-height:1.05;font-weight:500;margin:14px auto;max-width:750px}h2{font-family:Georgia,serif;font-size:1.8rem;font-weight:500;margin:0 0 8px}.lead{font-size:1.08rem;max-width:650px;margin:16px auto}.heart{color:var(--pink);font-size:1.4rem}.voucher{background:white;border:1px solid #efd6d8;border-radius:24px;padding:clamp(22px,5vw,42px);margin:18px auto 30px;box-shadow:0 12px 35px #65443a0d;position:relative}.voucher:before,.voucher:after{content:'✿';position:absolute;color:var(--pink);font-size:24px}.voucher:before{top:14px;left:18px}.voucher:after{bottom:14px;right:18px}.pill{display:inline-block;background:var(--sage);border-radius:99px;padding:6px 13px;font-size:.82rem}.section{padding:22px 0 10px}.sub{color:var(--muted);margin-top:0}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.food{display:flex;gap:11px;align-items:flex-start;padding:15px;border:1px solid #eadbd4;border-radius:16px;background:#fff;cursor:pointer;transition:.15s}.food:has(input:checked){border-color:var(--pink);background:#fff3f4;box-shadow:0 0 0 2px #d9859820}.food input{accent-color:var(--pink);margin-top:5px;transform:scale(1.15)}.food strong{display:block}.food small{color:var(--muted)}label.field{display:block;font-weight:600;margin:13px 0 6px}input[type=text],input[type=email],input[type=date],select,textarea{width:100%;padding:12px 13px;border:1px solid #dfd0c9;border-radius:12px;background:white;color:var(--ink);font:inherit}textarea{min-height:100px;resize:vertical}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}.btn{border:0;border-radius:99px;background:var(--pink);color:white;padding:14px 23px;font:inherit;font-weight:700;cursor:pointer}.btn:hover{filter:brightness(.96)}.center{text-align:center;padding:25px 0 45px}.notice{font-size:.85rem;color:var(--muted)}footer{text-align:center;padding:22px;color:var(--muted);font-size:.9rem}@media(max-width:560px){.two{grid-template-columns:1fr}.hero{padding-top:34px}}
-</style></head>
+:root{--lilac:#ded0f5;--lilac2:#cdb7eb;--pink:#f5c7dc;--pink2:#eaa6c6;--ink:#76558f;--paper:#fff9fd;--line:#c7aadf;}
+*{box-sizing:border-box}
+html{min-height:100%;background:var(--lilac)}
+body{margin:0;min-height:100vh;font-family:ui-rounded,"Arial Rounded MT Bold",system-ui,sans-serif;color:var(--ink);background:var(--lilac);overflow-x:hidden}
+#decorations{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.sticker{position:absolute;display:grid;place-items:center;font-size:clamp(1.6rem,4vw,2.8rem);width:clamp(44px,8vw,76px);height:clamp(44px,8vw,76px);border-radius:24px;background:#f9edf9a6;border:1px solid #fff9;box-shadow:0 5px 16px #76558f12;transform:rotate(var(--rotate,0deg))}
+.s1{left:4%;top:9%;--rotate:-12deg}.s2{right:6%;top:12%;--rotate:10deg}.s3{left:7%;top:45%;--rotate:8deg}.s4{right:5%;top:48%;--rotate:-9deg}.s5{left:14%;bottom:8%;--rotate:9deg}.s6{right:15%;bottom:7%;--rotate:-11deg}.s7{right:30%;top:5%;--rotate:8deg}.s8{left:30%;bottom:4%;--rotate:-6deg}
+main{position:relative;z-index:1;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:26px 16px}
+.screen{width:min(680px,100%);margin:auto}.hidden{display:none!important}
+.envelope-stage{display:flex;align-items:center;justify-content:center;min-height:78vh}
+.envelope-button{border:0;background:transparent;padding:0;width:min(400px,86vw);cursor:pointer;filter:drop-shadow(0 18px 18px #74578d24);-webkit-tap-highlight-color:transparent}
+.envelope{height:260px;position:relative;perspective:900px;}
+.back{position:absolute;inset:0;background:#e9b4d1;border:2px solid #fff7fd;border-radius:12px;overflow:hidden}
+.letter{position:absolute;left:8%;right:8%;top:12px;height:218px;background:var(--paper);border:1px solid #f1cfe0;border-radius:8px;display:flex;align-items:flex-start;justify-content:center;padding:26px 8px;transition:transform .75s ease;z-index:1}
+.stamp{background:#f6d8e6;border:2px dashed #d394b5;border-radius:8px;padding:12px 13px;color:#8b659d;font-family:Georgia,serif;font-size:clamp(1.05rem,4vw,1.45rem);box-shadow:0 2px 0 #e6b9d0;text-align:center;white-space:nowrap}
+.flap{position:absolute;z-index:4;top:0;left:0;width:100%;height:54%;background:#e5a6c7;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top center;transition:transform .7s ease;filter:drop-shadow(0 3px 2px #b47b9a26)}
+.pocket{position:absolute;z-index:3;inset:0;background:#efbdd6;clip-path:polygon(0 100%,0 0,50% 57%,100% 0,100% 100%);border-radius:12px}
+.seal{position:absolute;z-index:5;left:50%;top:47%;transform:translate(-50%,-50%);height:52px;width:52px;border-radius:50%;display:grid;place-items:center;background:#f8d9e7;border:3px solid #fff8fc;font-size:1.5rem;color:#c77da6;transition:opacity .25s}
+.envelope-button.opening .flap{transform:rotateX(180deg);z-index:0}.envelope-button.opening .letter{transform:translateY(-95px)}.envelope-button.opening .seal{opacity:0}
+.chooser{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:420px;margin:auto}
+.person{min-height:150px;border:2px solid #f9e8f3;background:#f9ebfa;border-radius:26px;color:var(--ink);font:inherit;cursor:pointer;box-shadow:0 9px 20px #77589016;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;transition:transform .18s,border-color .18s}
+.person:hover,.person:focus-visible{transform:translateY(-3px);border-color:#e5a6c7}.person .emoji{font-size:3rem}.person strong{font-size:1.2rem}
+.form-card{width:min(760px,100%);margin:20px auto;background:#f8f0fcab;border:1px solid #fff7;border-radius:26px;padding:clamp(18px,4vw,32px);box-shadow:0 14px 35px #77589012;backdrop-filter:blur(4px)}
+.question{margin:0 0 28px}.question:last-of-type{margin-bottom:18px}.question h2{font-size:clamp(1.05rem,2.6vw,1.28rem);font-weight:750;line-height:1.35;margin:0 0 13px;color:#76558f}
+.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.option{display:flex;align-items:center;gap:9px;background:#fff9fd;border:1px solid #e8d8f0;border-radius:13px;padding:12px 13px;min-height:48px;cursor:pointer;color:#76558f;font-size:.97rem;transition:.15s}
+.option:has(input:checked){background:#f5ddea;border-color:#d996bb;box-shadow:0 0 0 2px #e7b8d32b}
+.option input{width:17px;height:17px;accent-color:#bd87c9;flex:0 0 auto}
+textarea,input[type=date]{width:100%;font:inherit;color:#76558f;background:#fff9fd;border:1px solid #ddcae9;border-radius:13px;padding:13px;outline-color:#c99bd9}
+textarea{resize:vertical;min-height:100px}input[type=date]{min-height:48px}
+.submit-row{display:flex;justify-content:center;padding:4px 0 3px}
+.submit{border:0;background:#d99cbe;color:#fff;border-radius:999px;padding:13px 34px;font:inherit;font-weight:750;cursor:pointer;box-shadow:0 6px 14px #9e65912c}
+.submit:disabled{opacity:.6;cursor:wait}.sent{display:none;min-height:72vh;align-items:center;justify-content:center;font-size:4rem;color:#b67fc1}.sent.show{display:flex}
+.error{display:none;margin-top:12px;color:#90506d;text-align:center;font-size:.93rem}.error.show{display:block}
+@media(max-width:480px){.envelope{height:220px}.letter{height:184px;padding-top:22px}.envelope-button.opening .letter{transform:translateY(-78px)}.options{grid-template-columns:1fr}.form-card{border-radius:20px}.sticker{opacity:.82}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
 <body>
-<header class="hero"><div class="wrap"><div class="eyebrow">Un regalo especial · hecho con amor</div><h1>Vale por una cocina llena de amor</h1><p class="lead">Ustedes disfruten esta etapa; nosotras nos ocupamos de llenarles el freezer de cosas ricas. 💗</p><div class="voucher"><span class="pill">VALE DE REGALO</span><h2 style="margin-top:16px">Una jornada de cocina con Celes y Jaz</h2><p>Vale por preparar sus comidas favoritas, separar todo en porciones y dejarles tuppers listos para esos días en los que cocinar sea lo último que quieran hacer.</p><div class="heart">♡ ♡ ♡</div><p><strong>Canjeable por comida casera, ayuda y mucho amor.</strong></p></div><a href="#elegir" class="btn" style="display:inline-block;text-decoration:none">Elegir qué cocinamos ↓</a></div></header>
-<main class="wrap"><form action="https://formsubmit.co/TU_EMAIL" method="POST" id="pedido">
-<input type="hidden" name="_subject" value="¡Eligieron sus comidas para el vale de cocina!"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false">
-<section class="section" id="elegir"><h2>01. ¿Qué les gustaría comer?</h2><p class="sub">Pueden elegir todas las opciones que les tienten.</p><div class="grid">
-<label class="food"><input type="checkbox" name="Comidas[]" value="Milanesas"><span><strong>🥩 Milanesas</strong><small>Para acompañar con lo que más les guste</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Lasaña"><span><strong>🍝 Lasaña</strong><small>Un clásico bien casero</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Empanadas"><span><strong>🥟 Empanadas</strong><small>Ideales para tener a mano</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Tartas"><span><strong>🥧 Tartas</strong><small>De verduras, jamón y queso u otras</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Salsas y pastas"><span><strong>🍅 Salsas y pastas</strong><small>Salsitas listas para resolver una comida</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Guisos o sopas"><span><strong>🥣 Guisos o sopas</strong><small>Comida reconfortante</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Hamburguesas caseras"><span><strong>🍔 Hamburguesas caseras</strong><small>Para armar cuando quieran</small></span></label>
-<label class="food"><input type="checkbox" name="Comidas[]" value="Otra comida"><span><strong>✨ ¡Otra cosa!</strong><small>Nos cuentan cuál en el espacio de abajo</small></span></label>
-</div></section>
-<section class="section"><h2>02. Organicemos el freezer</h2><div class="two"><div><label class="field" for="porciones">¿Para cuántas personas?</label><select id="porciones" name="Personas"><option>2 personas</option><option>3 personas</option><option>4 personas</option><option>5 o más personas</option></select></div><div><label class="field" for="tipo">¿Qué les serviría más?</label><select id="tipo" name="Tipo de preparación"><option>Comidas listas para calentar</option><option>Preparaciones para terminar en el momento</option><option>Un poco de ambas</option></select></div></div><label class="field" for="cantidad">¿Tienen alguna idea de cuántas porciones quisieran?</label><input id="cantidad" name="Cantidad de porciones aproximada" type="text" placeholder="Ej.: 10 tuppers para dos personas"></section>
-<section class="section"><h2>03. Sus gustos y preferencias</h2><label class="field" for="favoritos">¿Hay alguna comida que amen y no puede faltar?</label><textarea id="favoritos" name="Comidas favoritas" placeholder="Acá pueden pedir lo que quieran…"></textarea><label class="field" for="evitar">¿Algo que no les guste o prefieran evitar?</label><textarea id="evitar" name="Ingredientes a evitar" placeholder="Ingredientes, sabores, comidas que no les gustan…"></textarea><label class="field" for="restricciones">Alergias o restricciones alimentarias</label><textarea id="restricciones" name="Alergias y restricciones" placeholder="Cuéntennos para tenerlo en cuenta. Si no hay, pueden dejarlo vacío."></textarea></section>
-<section class="section"><h2>04. ¿Cuándo les vendría bien?</h2><div class="two"><div><label class="field" for="fecha">Fecha ideal (opcional)</label><input id="fecha" type="date" name="Fecha ideal"></div><div><label class="field" for="nombre">¿De parte de quién es el pedido?</label><input id="nombre" type="text" name="Nombre" placeholder="Nombre" required></div></div><label class="field" for="extra">¿Algo más que les gustaría que les dejemos preparado?</label><textarea id="extra" name="Pedidos especiales" placeholder="Por ejemplo: desayunos, snacks, algo dulce, porciones individuales…"></textarea><div class="center"><button class="btn" type="submit">Enviar nuestros deseos 💌</button><p class="notice">No hace falta decidir todo ahora. Completen lo que sepan y nosotras vemos el resto juntas.</p></div>
-</section></form></main><footer>Hecho con amor por Celes y Jaz · para acompañarlos en esta etapa ♡</footer>
-<script>document.getElementById('pedido').addEventListener('submit',function(e){if(this.action.includes('TU_EMAIL')){e.preventDefault();alert('¡La página ya está lista para probar! Antes de enviar respuestas reales, tenemos que conectar tu correo. Te voy a guiar para hacerlo.');}});</script>
-</body></html>
+<div id="decorations" aria-hidden="true">
+ <span class="sticker s1">🧸</span><span class="sticker s2">🍼</span><span class="sticker s3">🧸</span><span class="sticker s4">🪇</span><span class="sticker s5">🩷</span><span class="sticker s6">🍼</span><span class="sticker s7">🧷</span><span class="sticker s8">🎀</span>
+</div>
+<main>
+ <section class="screen" id="intro" aria-label="Sobre">
+  <div class="envelope-stage">
+   <button type="button" class="envelope-button" id="openEnvelope" aria-label="Abrir sobre para Sabi y Nacho">
+    <div class="envelope">
+     <div class="back"></div>
+     <div class="letter"><div class="stamp">Para: Sabi &amp; Nacho</div></div>
+     <div class="flap"></div><div class="pocket"></div><div class="seal">♡</div>
+    </div>
+   </button>
+  </div>
+ </section>
+ <section class="screen hidden" id="choose" aria-label="Elegir persona">
+  <div class="chooser">
+   <button type="button" class="person" data-person="Sabi"><span class="emoji">🧸</span><strong>Sabi</strong></button>
+   <button type="button" class="person" data-person="Nacho"><span class="emoji">🍼</span><strong>Nacho</strong></button>
+  </div>
+ </section>
+ <section class="screen hidden" id="formScreen" aria-label="Formulario de comidas">
+  <form class="form-card" id="mealForm" action="https://formspree.io/f/xbgdeyoq" method="POST">
+   <input type="hidden" name="Quién respondió" id="personField" value="">
+   <input type="hidden" name="_subject" value="Respuestas del vale de cocina · Sabi & Nacho">
+   <input type="hidden" name="_template" value="table">
+   <div class="question">
+    <h2>¿Qué comida te gustaría tener congelada?</h2>
+    <div class="options">
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Milanesas">Milanesas</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Pastas">Pastas</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Empanadas">Empanadas</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Tartas">Tartas</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Salsas">Salsas</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Guiso">Guiso</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Hamburguesas caseras">Hamburguesas caseras</label>
+     <label class="option"><input type="checkbox" name="Comidas[]" value="Pizzas">Pizzas</label>
+    </div>
+   </div>
+   <div class="question">
+    <h2>¿Qué verduras les gustaría tener cortadas?</h2>
+    <div class="options">
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Cebolla">Cebolla</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Morrón">Morrón</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Espinaca">Espinaca</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Acelga">Acelga</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Zanahorias">Zanahorias</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Brócoli">Brócoli</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Papa">Papa</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Batata">Batata</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Calabaza">Calabaza</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Zapallito">Zapallito</label>
+     <label class="option"><input type="checkbox" name="Verduras[]" value="Zucchini">Zucchini</label>
+    </div>
+   </div>
+   <div class="question">
+    <h2>¿Alguna comida que les encante y necesiten que esté en el freezer?</h2>
+    <textarea name="Comida favorita para el freezer" aria-label="Comida favorita para el freezer"></textarea>
+   </div>
+   <div class="question">
+    <h2>¿Alguna comida o ingrediente que no les guste?</h2>
+    <textarea name="Comidas o ingredientes que no les gustan" aria-label="Comidas o ingredientes que no les gustan"></textarea>
+   </div>
+   <div class="question">
+    <h2>¿Qué fecha les conviene?</h2>
+    <input type="date" name="Fecha conveniente" aria-label="Fecha conveniente">
+   </div>
+   <div class="submit-row"><button class="submit" type="submit" id="sendButton" aria-label="Enviar respuestas">♡</button></div>
+   <div class="error" id="formError" role="alert"></div>
+  </form>
+  <div class="sent" id="sentState" role="status" aria-label="Enviado">♡</div>
+ </section>
+</main>
+<script>
+const $=id=>document.getElementById(id);
+const openButton=$('openEnvelope');
+openButton.addEventListener('click',()=>{
+ if(openButton.classList.contains('opening')) return;
+ openButton.classList.add('opening');
+ window.setTimeout(()=>{$('intro').classList.add('hidden');$('choose').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});},720);
+});
+document.querySelectorAll('[data-person]').forEach(button=>button.addEventListener('click',()=>{
+ $('personField').value=button.dataset.person;
+ $('choose').classList.add('hidden');$('formScreen').classList.remove('hidden');window.scrollTo({top:0,behavior:'smooth'});
+}));
+$('mealForm').addEventListener('submit',async event=>{
+ event.preventDefault();
+ const form=event.currentTarget; const button=$('sendButton'); const error=$('formError');
+ button.disabled=true;error.classList.remove('show');error.textContent='';
+ try{
+  const response=await fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}});
+  if(response.ok){form.classList.add('hidden');$('sentState').classList.add('show');window.scrollTo({top:0,behavior:'smooth'});}
+  else{
+   let message='No se pudo enviar. Revisá que el formulario de Formspree esté activo y que hayas confirmado el correo de verificación.';
+   try{const data=await response.json();if(data&&data.errors&&data.errors.length)message=data.errors.map(e=>e.message).join(' ');}catch(_){ }
+   error.textContent=message;error.classList.add('show');button.disabled=false;
+  }
+ }catch(_){error.textContent='No se pudo conectar. Revisá tu conexión e intentá nuevamente.';error.classList.add('show');button.disabled=false;}
+});
+</script>
+</body>
+</html>
